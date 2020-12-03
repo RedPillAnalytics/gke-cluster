@@ -13,7 +13,7 @@ brew install helm
 
 ## Add the GitHub Actions runner
 ```
-./create-actions-runner.sh
+./create-actions-runner.sh <github-token>
 ```
 
 ## Delete the cluster
