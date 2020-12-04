@@ -75,8 +75,8 @@ spec:
               name: runner-work
             - mountPath: /home/runner/.m2
               name: mvn-repo
-            - mountPath: /home/runner/.m2/settings.xml
-              name: settings-xml
+            # - mountPath: /home/runner/.m2/settings.xml
+            #   name: settings-xml
         - name: docker
           env:
             - name: DOCKER_TLS_CERTDIR
@@ -116,7 +116,7 @@ spec:
           name: docker-storage
         - emptyDir: {}
           name: docker-certs
-        - configMap:
-            defaultMode: 420
-            name: settings-xml
-          name: settings-xml
+        # - configMap:
+        #     defaultMode: 420
+        #     name: settings-xml
+        #   name: settings-xml
