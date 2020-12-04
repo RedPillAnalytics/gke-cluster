@@ -12,7 +12,7 @@ helm install github-actions-runner-operator evryfs-oss/github-actions-runner-ope
 --namespace actions-runner
 
 # Create GitHub Token
-kubectl create secret generic github-token --from-literal=GH_TOKEN=$1
+kubectl create secret generic actions-runner --from-literal=GH_TOKEN=$1
 
 # Create CRD
 kubectl apply -f runner-resource.yaml

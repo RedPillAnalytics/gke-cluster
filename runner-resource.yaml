@@ -16,7 +16,7 @@ spec:
   # repository: "theRepoName"
   tokenRef:
     key: GH_TOKEN
-    name: github-token
+    name: actions-runner
   podTemplateSpec:
     metadata:
       annotations:
