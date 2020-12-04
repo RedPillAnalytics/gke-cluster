@@ -1,18 +1,18 @@
 #!/bin/bash
 
 # Add the helm repo
-helm repo add evryfs-oss https://evryfs.github.io/helm-charts/
+helm repo add jetstack https://charts.jetstack.io
 helm repo update
 
 # Create namespace
-kubectl create namespace actions-runner
+kubectl create namespace cert-manager
 
 # Install the helm chart
-helm install github-actions-runner-operator evryfs-oss/github-actions-runner-operator \
---namespace actions-runner
+helm install \
+  cert-manager jetstack/cert-manager \
+  --namespace cert-manager \
+  --version v1.1.0 \
+  --set installCRDs=true
 
 # Create GitHub Token
-kubectl create secret generic actions-runner --from-literal=GH_TOKEN=$1
-
-# Create CRD
-kubectl apply -f runner-resource.yaml
+kubectl apply -f https://github.com/summerwind/actions-runner-controller/releases/latest/download/actions-runner-controller.yaml
